@@ -1,2 +1,2 @@
 # SpringDataJPAHibernateMySql
-Spring data JPA, Hibernate, MySQL
+Spring data JPA, Hibernate, JPQL, SQL, @Query, MySQL
