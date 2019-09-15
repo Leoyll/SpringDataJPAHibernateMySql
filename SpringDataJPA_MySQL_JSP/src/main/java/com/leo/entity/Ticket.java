@@ -17,7 +17,7 @@ import javax.persistence.Table;
 */
 
 @Entity
-@Table(name="ticket_info")	
+@Table(name="ticket_info1")	
 public class Ticket {
 	@Id
 	@Column (name="ticket_number", length = 16)
@@ -33,8 +33,6 @@ public class Ticket {
 	private String buyer;
 	
 	@Column(name="ticket_pur_date")	//name="ticket_purDate" will be transferred to "ticket_pur_date"
-	//Date 类型，前端date是string形式，无法转换为后端的对象的Date类型的属性，各种方法试了都无效
-	//后端使用String类型，前端使用date输入，可以满足应用需要
 	private String purDate;
 
 	public long getNumber() {
