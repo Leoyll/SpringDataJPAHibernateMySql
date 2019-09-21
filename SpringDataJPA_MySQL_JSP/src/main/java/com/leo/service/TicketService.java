@@ -6,8 +6,9 @@ import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.leo.DAO.ITicketRepository;
+
 import com.leo.entity.Ticket;
+import com.leo.repository.ITicketRepository;
 
 @Service
 public class TicketService {
