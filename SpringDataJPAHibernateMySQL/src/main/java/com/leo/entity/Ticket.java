@@ -8,15 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /*
- * 	@Entity		create a table based on the class
- * 	can define the table name which will be created by jpa(hibernate) automatically if there is not a table with same name in DATABASE.
- * 	if not parameter name, a table with same name as class will be created by jpa(hibernate) automatically if there is not a table with same name in DATABASE.
- * 	@Table		define table name
- * 	@id			define as PRIMARY KEY
- * 	@Column(name = "ticket_price")	define table column name as ticket_price
- * 	@GeneratedValue(strategy=GenerationType.AUTO)	define generation strategy of PRIMARY KEY
+ * @Entity		create a table based on the class
+ * Define the table name which will be created by jpa(hibernate) automatically if there is not a table with same name in DATABASE.
+ * if not parameter name, a table with same name as class will be created by jpa(hibernate) automatically if there is not a table with same name in DATABASE.
+ * @Table		define table name
+ * @id			define as PRIMARY KEY
+ * @Column(name = "ticket_price")	define table column name as ticket_price
+ * @GeneratedValue(strategy=GenerationType.AUTO)	define generation strategy of PRIMARY KEY
+ * @MappedSuperclass is used in superclass
+ * The superclass which is labeled by @MappedSuperclass can not be mapped to a table in database.
+ * The superclass which is labeled by @MappedSuperclass can not be labeled with annotation @Entity and @Table.
 */
-
 @Entity
 @Table(name="my_ticket")	
 public class Ticket {
@@ -43,13 +45,6 @@ public class Ticket {
 	}
 	public void setTicket_activity_name(String ticket_activity_name) {
 		this.ticket_activity_name = ticket_activity_name;
-	}
-
-	
+	}	
 
 }
-/*	
- *		@MappedSuperclass is used in superclass
- *		The superclass which is labeled by @MappedSuperclass can not be mapped to a table in database.
- *		The superclass which is labeled by @MappedSuperclass can not be labeled with annotation @Entity and @Table.
- */

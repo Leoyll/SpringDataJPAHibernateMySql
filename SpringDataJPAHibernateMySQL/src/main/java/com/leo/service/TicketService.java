@@ -5,13 +5,17 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.leo.entity.Ticket;
 import com.leo.repository.ITicketRepository;
 
+/**
+ * Database operation services via Spring Data JPA by calling repository interface.
+ * 
+ * @author Leo
+ *
+ */
 @Service
 public class TicketService {
 //	@Autowired

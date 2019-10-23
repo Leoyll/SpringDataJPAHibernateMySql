@@ -2,25 +2,33 @@ package com.leo.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.leo.entity.Ticket;
 import com.leo.service.TicketService;
 
+/**
+ * Controllers, are used to call related services, such as save a ticket object in database, 
+ * display query results, delete a ticket object in database.
+ * @author Leo
+ *
+ */
 @RestController
 public class TicketController {
 //	@Autowired
 	@Resource
 	private TicketService ticketService;
 
-	//ex: http://localhost:8080/save?name=movie2&price=15
-	//ex: http://localhost:8080/save?name=movie4%20on%20Aug&price=15	"%20" means one space	
+	/**
+	 * ex: http://localhost:8080/save?name=movie2&price=15
+	 * ex: http://localhost:8080/save?name=movie4%20on%20Aug&price=15	"%20" means one space
+	 * @param name
+	 * @param price
+	 * @return
+	 */
 	@RequestMapping("/save")
 	public Ticket save(@RequestParam("name") String name, @RequestParam("price") Double price) {
 		Ticket ticket = new Ticket();
@@ -30,14 +38,22 @@ public class TicketController {
 		return ticketService.save(ticket);
 	}
 	
-	//ex: http://localhost:8080/delById?id=1
+	/**
+	 * ex: http://localhost:8080/delById?id=1
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping("/delById")		
 	public String del(@RequestParam("id") Long id) {
 		ticketService.delete(id.intValue());
 		return "del ok";
 	}
 	
-	//ex: http://localhost:8080/findById?id=1
+	/**
+	 * ex: http://localhost:8080/findById?id=1
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping("/findById")	
 	public Optional<Ticket> find(@RequestParam("id") Long id) {
 		return ticketService.find(id.intValue());
